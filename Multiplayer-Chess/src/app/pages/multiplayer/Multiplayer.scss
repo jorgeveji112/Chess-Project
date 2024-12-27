@@ -1,0 +1,66 @@
+@import '../../../global';
+
+.Multiplayer {
+    width: 100%;
+    min-height: calc(100vh - var(--header-height));
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 25px;
+    padding: 25px;
+    @media (max-width: 1599px) {
+        gap: 0;
+        flex-wrap: wrap;
+        .Aside {
+            width: calc(100% + 50px) !important;
+            max-width: initial !important;
+            transform: translate(-25px, 25px) !important;
+            height: fit-content !important;
+        }
+    }
+
+    .Board {
+        margin: auto;
+        flex-shrink: 1;
+        // 50px padding
+        max-height: calc(100vh - var(--header-height) - 50px);
+    }
+
+    .Aside {
+        flex-shrink: 0;
+        width: 30%;
+        min-width: 320px;
+        max-width: 470px;
+        padding: 25px;
+        height: calc(100% + 50px);
+        transform: translate(25px, -25px);
+        gap: 25px;
+    }
+
+    .game-started-alert {
+        color: white;
+        position: fixed;
+        z-index: 100;
+        top: 50px;
+        right: 25px;
+        background-color: #ff9900;
+        padding: 15px 25px;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        border-radius: 5px;
+        h2 {  margin-bottom: 15px; }
+        transform: translateY(calc(-100% - 50px));
+        opacity: 0;
+        animation: fadeInAndOut 3s ease-in;
+    }
+
+    @keyframes fadeInAndOut {
+        0%, 100% {
+            transform: translateY(calc(-100% - 50px));
+            opacity: 0;
+        }
+        20%, 80% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+}

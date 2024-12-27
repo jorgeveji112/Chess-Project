@@ -1,0 +1,61 @@
+@import '../../../global';
+
+.Local {
+    width: 100%;
+    min-height: calc(100vh - var(--header-height));
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 25px;
+    padding: 25px;
+    @media (max-width: 1599px) {
+        gap: 0;
+        flex-wrap: wrap;
+        .Aside {
+            width: calc(100% + 50px) !important;
+            max-width: initial !important;
+            transform: translate(-25px, 25px) !important;
+            flex-direction: column-reverse;
+            height: fit-content !important;
+        }
+    }
+
+    .Board {
+        margin: auto;
+        flex-shrink: 1;
+        // 50px padding
+        max-height: calc(100vh - var(--header-height) - 50px);
+    }
+
+    .Aside {
+        flex-shrink: 0;
+        width: 30%;
+        min-width: 320px;
+        max-width: 470px;
+        padding: 25px;
+        height: calc(100% + 50px);
+        transform: translate(25px, -25px);
+    }
+
+    .controls {
+        width: 100%;
+        margin: 20px 0;
+        display: flex;
+        align-items: center;
+
+        label {
+            margin-left: 6px;
+            cursor: pointer;
+        }
+
+        .Button {
+            width: 80px;
+            height: 30px;
+            border-radius: 5px;
+            font-weight: normal;
+            font-size: 16px;
+            margin-right: 20px;
+        }
+    }
+
+}

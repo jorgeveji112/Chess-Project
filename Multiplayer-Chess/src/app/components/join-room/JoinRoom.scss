@@ -1,0 +1,125 @@
+@import '../../../global';
+
+.JoinRoom {
+    @include assideItem;
+    padding: 25px;
+
+    h3 {
+        margin: 0;
+    }
+
+    .Input input {
+        margin-top: 0;
+    }
+
+    section {
+        padding: 0;
+        height: 100%;
+    }
+
+    .search_container {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        gap: 15px;
+        .Input {  min-width: calc(100% - 95px); }
+    }
+
+    .properties {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        gap: 15px;
+        padding-right: 105px;
+        padding-left: 10px;
+    }
+
+    .room {
+        width: 100%;
+        height: 30px;
+        margin: 15px 0;
+        gap: 15px;
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        position: relative;
+        &:first-child { margin-top: 8px; }
+        .info {
+            min-width: calc(100% - 95px);
+            height: 30px;
+            padding: 0 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: $highlight;
+            border-radius: 5px;
+            gap: 15px;
+            span {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                width: 100%;
+            }
+        }
+
+        .password_input {
+            width: calc(100% - 95px);
+            height: 100%;
+            top: 0;
+            left: 0;
+            position: absolute;
+            border-radius: 5px;
+            transform: translate(-105%);
+            transition: transform 250ms ease-in, border 250ms ease-in 250ms;
+            border: 1px solid $background;
+            input {
+                width: 100%;
+                height: 100%;
+                border-radius: 5px;
+                outline: none;
+                border: none;
+                background-color: $background;
+                padding: 0 10px;
+                font-size: 14px;
+                &::placeholder {
+                    transition: color 150ms ease-in 350ms;
+                    color: $background;
+                }
+            }
+        }
+
+        &.active {
+            .password_input {
+                transform: translate(0);
+                border: 1px solid $danger;
+                & input::placeholder {
+                    color: $danger;
+                }
+                .invalid-message {
+                    position: absolute;
+                    bottom: -18px;
+                    color: $danger;
+                    font-size: 12px;
+                }
+            }
+
+            .Button {
+                transition: background 250ms ease-in;
+                background-color: $danger;
+                border-bottom: 2px solid #dc7462;
+            }
+        }
+    }
+
+    .Button {
+        width: 100%;
+        height: 30px;
+        font-size: 16px;
+    }
+
+    .no-rooms {
+        margin: 15px 10px;
+        font-size: 14px;
+    }
+}

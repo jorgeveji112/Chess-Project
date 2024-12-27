@@ -1,0 +1,80 @@
+@import 'global';
+
+.App{
+    width: 100%;
+    min-height: 100vh;
+    background-color: $background;
+    padding-top: var(--header-height);
+
+    header {
+        @media (min-width: 1600px) {  display: none;  }
+        z-index: 1;
+        background-color: var(--backgroundDark);
+        width: 100%;
+        height: var(--header-height);
+        padding: 20px;
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        border-bottom: 2px solid var(--primary);
+        .menu-icon {
+            padding: 8px;
+            width: 48px;
+            height: 48px;
+            cursor: pointer;
+        }
+        .logo {
+            height: 48px;
+            margin: auto;
+            // Offsets the icon so the logo is in the middle of the screen
+            padding-right: 48px;
+            img { height: 100%; }
+        }
+    }
+
+    .container { 
+        display: flex;
+        min-height: calc(100vh - var(--header-height));
+        .SideMenu { flex-shrink: 0; }
+    }
+
+    .side-menu-overlay {
+        pointer-events: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        background-color: transparent;
+        transition: background-color 350ms ease-in 50ms;
+        &.active {
+            pointer-events: initial;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+        &.side-menu-active {
+            @media (max-width: 1599px) {
+                pointer-events: initial;
+                background-color: rgba(0, 0, 0, 0.6);
+            }
+        }
+    }
+
+    .socket-controls {
+        .Button {
+            width: fit-content;
+            padding: 0 15px;
+            &+.Button {
+                background-color: $danger;
+                border-bottom: 2px solid rgb(203, 85, 72);
+            }
+        }
+        position: fixed;
+        z-index: 5;
+        top: 30px;
+        right: 30px;
+        display: flex;
+        gap: 10px;
+    }
+}

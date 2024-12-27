@@ -1,0 +1,41 @@
+@import '../../../global';
+
+.MovesHistory {
+    @include assideItem;
+    .labels {
+        width: 100%;
+        padding: 0 25px;
+        margin-bottom: 15px;
+        display: flex;
+        justify-content: space-between;
+        span {
+            opacity: 0.5;
+            &:first-child { width: 30px; }
+            width: 50px;
+        }
+    }
+    section {
+        div {
+            display: flex;
+            align-items: flex-end;
+            margin-bottom: 15px;
+            justify-content: space-between;
+            span {
+                display: flex;
+                align-items: flex-end;
+                font-size: 16px;
+                font-weight: bold;
+                min-width: 30px;
+                min-height: 30px;
+                img {
+                    margin-right: 3px;
+                    width: 30px;
+                }
+
+                &.white, &.black {
+                    width: 50px;
+                }
+            }
+        }
+    }
+}

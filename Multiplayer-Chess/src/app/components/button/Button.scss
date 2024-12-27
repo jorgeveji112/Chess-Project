@@ -1,0 +1,48 @@
+@import '../../../global';
+
+.Button{
+    @include flex-center(row);
+    outline: none;
+    border:  none;
+    text-decoration: none;
+    
+    width: 215px;
+    height: 35px;
+    background-color: $background;
+    color: $text;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover{
+        background-color: lighten( $background, 10%);
+    }
+
+    &.primary{
+        background-color: $primary;
+        border-bottom: 2px solid $primaryDark;
+
+        &:hover{
+            background-color: lighten( $primary, 10%);
+        }
+    }
+
+    &.backgroundDark{
+        background-color: $backgroundDark;
+
+        &:hover{
+            background-color: lighten( $backgroundDark, 10%);
+        }
+    }
+
+    &.highlight{
+        background-color: $highlight;
+
+        &:hover{
+            background-color: lighten( $highlight, 10%);
+        }
+    }
+
+
+}
